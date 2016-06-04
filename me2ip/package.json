@@ -1,0 +1,12 @@
+{
+  "name": "me2ip",
+  "version": "1.0.0",
+  "description": "This is a super simple API which returns your public IP address",
+  "main": "server.js",
+  "dependencies": {
+    "prettysize": "0.0.3",
+    "restify": "^4.1.0"
+  },
+  "author": "njb_said",
+  "license": "MIT"
+}
