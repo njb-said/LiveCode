@@ -14,6 +14,13 @@ server.use(function(req, res, next) {
         req.user_ip = req.connection.remoteAddress;
     }
 
+    // Make ::1 IPv6 become 127.0.0.1 in development
+    if(process.env.ENV == 'dev') {
+        if(req.user_ip == '::1') {
+            req.user_ip = '127.0.0.1';
+        }
+    }
+
     next();
 });
 
@@ -44,7 +51,7 @@ server.get('/get', function(req, res, next) {
 server.get('/json', function(req, res, next) {
     stats.json++;
 
-    var family = ipv6Regex.test(req.user_ip) ? 'IPv6' : 'IPv4';
+    var family = ipv4Regex.test(req.user_ip) ? 'IPv4' : 'IPv6';
 
     return res.send({ip : req.user_ip, family: family});
 });
