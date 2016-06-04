@@ -75,3 +75,8 @@ pre.code {
 pre.one-line {
     white-space: normal;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
